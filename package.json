@@ -14,10 +14,15 @@
   },
   "dependencies": {
     "@quasar/extras": "^1.16.4",
+    "appwrite": "^13.0.0",
     "axios": "^1.2.1",
+    "date-fns": "^2.30.0",
+    "markdown-vue": "^1.0.3",
     "pinia": "^2.0.11",
     "quasar": "^2.6.0",
+    "unplugin-vue-markdown": "^0.25.2",
     "vue": "^3.0.0",
+    "vue-markdown-render": "^2.1.1",
     "vue-router": "^4.0.0"
   },
   "devDependencies": {

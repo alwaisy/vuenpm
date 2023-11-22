@@ -7,3 +7,17 @@ declare namespace NodeJS {
     VUE_ROUTER_BASE: string | undefined;
   }
 }
+
+interface ImportMetaEnv {
+  readonly VN_SITE_URL: string;
+  readonly VN_APPWRITE_PROJECT_KEY: string;
+  readonly VN_APPWRITE_PROJECT_ID: string;
+  readonly VN_APPWRITE_PROJECT_ENDPOINT: string;
+  readonly VN_APPWRITE_DB_ID: string;
+  readonly VN_APPWRITE_PKG_COLL: string;
+  readonly VN_NPM_API_URL: string;
+}
+
+interface ImportMeta {
+  readonly env: ImportMetaEnv;
+}
