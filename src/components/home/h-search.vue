@@ -29,7 +29,7 @@ async function onSearch() {
 const onSearchEnter = async () => {
   console.log(query.value, 'onSearch');
   if (!query.value) return;
-  router.push(`/search/${query.value}`);
+  router.push(`/search/${encodeURIComponent(query.value)}`);
 };
 
 // computed
@@ -49,7 +49,7 @@ const searchBtnLabel = computed(() => {
 });
 
 const searchBtnTo = computed(() => {
-  return query.value ? `search/${query.value}` : 'packages';
+  return query.value ? `search/${encodeURIComponent(query.value)}` : 'packages';
 });
 </script>
 
@@ -71,7 +71,7 @@ const searchBtnTo = computed(() => {
         <q-item
           clickable
           v-ripple
-          :to="`package/${search.name}`"
+          :to="`package/${encodeURIComponent(search.name)}`"
           v-for="(search, i) in isQueryExist"
           :key="search.name"
           :class="[{ 'list-item': i !== isQueryExist.length - 1 }]"

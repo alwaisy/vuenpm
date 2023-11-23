@@ -42,6 +42,10 @@ export interface PkgDetails extends Package {
     modified: string;
     published: string;
   };
+  weeklyDownloads: string;
+  license: string;
 
   // homepage: string;
 }
+
+export type PmList = 'npm' | 'pnpm' | 'yarn';

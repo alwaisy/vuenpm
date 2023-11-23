@@ -27,9 +27,9 @@ async function onSearch() {
 }
 
 const onSearchEnter = async () => {
-  console.log(query.value, 'onSearch');
+  // console.log(query.value, 'onSearch');
   if (!query.value) return;
-  router.push(`/search/${query.value}`);
+  router.push(`/search/${encodeURIComponent(query.value)}`);
 };
 
 // computed
@@ -55,6 +55,7 @@ const onSearchEnter = async () => {
         color="secondary"
         no-caps
         class="search-btn"
+        @click="onSearchEnter"
       />
     </div>
   </div>

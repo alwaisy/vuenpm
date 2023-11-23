@@ -1,13 +1,62 @@
 <!-- eslint-disable vue/multi-word-component-names -->
 <script setup lang="ts">
-import { PkgDetails } from 'src/@types/application';
+import { PkgDetails, PmList } from 'src/@types/application';
 import VueMarkdown from 'vue-markdown-render';
+import { copyToClipboard, useQuasar } from 'quasar';
 
 interface Props {
   pkg?: PkgDetails;
 }
-
 const props = defineProps<Props>();
+const $q = useQuasar();
+
+const pkgManagers = {
+  npm: {
+    cmd: 'i',
+  },
+  yarn: {
+    cmd: 'add',
+  },
+  pnpm: {
+    cmd: 'add',
+  },
+};
+
+const preferredPm = ref<PmList>();
+function onPmChange(pkgManager: PmList) {
+  preferredPm.value = pkgManager;
+}
+
+// computed
+const installCmd = computed(() => {
+  if (preferredPm.value) {
+    return `${preferredPm.value} ${pkgManagers[preferredPm.value].cmd} ${
+      props.pkg?.name
+    }`;
+  }
+  return `npm i ${props.pkg?.name}`;
+});
+
+// methods
+function copyCommand(cmd: string) {
+  copyToClipboard(cmd)
+    .then(() => {
+      // success!
+      $q.notify({
+        type: 'positive',
+        message: 'Copied to clipboard',
+        position: 'top',
+      });
+    })
+    .catch(() => {
+      // fail
+      $q.notify({
+        type: 'negative',
+        message: 'Failed to copy to clipboard',
+        position: 'top',
+      });
+    });
+}
 </script>
 
 <template>
@@ -22,17 +71,47 @@ const props = defineProps<Props>();
           <p class="text-subtitle">{{ pkg?.description }}</p>
         </div>
         <div class="">
-          <p class="text-subtitle2">Select Package manager</p>
-          <pic-radio-group />
+          <p class="text-subtitle2">
+            You can choose your preferred package manager
+          </p>
+          <pic-radio-group @pm-change="onPmChange" />
         </div>
       </div>
     </q-card-section>
 
     <q-separator />
     <q-card-section class="row justify-between">
-      <p>weekly downloads</p>
-      <p>license</p>
-      <p>repository</p>
+      <div>
+        <p class="text-subtitle text-lightShadeOne">Weekly downloads</p>
+        <code>{{ pkg?.weeklyDownloads }}</code>
+      </div>
+      <div>
+        <p class="text-subtitle text-lightShadeOne">License</p>
+        <code>{{ pkg?.license }}</code>
+      </div>
+      <div>
+        <p class="text-subtitle text-lightShadeOne">Repository</p>
+        <a
+          :href="`${String(pkg?.links.repository)}?src=vuenpm`"
+          class="repo-url"
+          target="_blank"
+          >Go</a
+        >
+      </div>
+      <div>
+        <p class="text-subtitle text-lightShadeOne q-mb-sm">Install</p>
+        <div class="install-cmd__wrapper">
+          <code class="install-cmd">{{ installCmd }}</code>
+          <q-btn
+            unelevated
+            round
+            size="xs"
+            color="primary"
+            icon="copy_all"
+            @click="copyCommand(installCmd)"
+          />
+        </div>
+      </div>
     </q-card-section>
     <q-separator />
     <q-card-section>
@@ -71,5 +150,21 @@ article {
   & ::v-deep(h3) {
     font-size: 1rem;
   }
+}
+
+.repo-url {
+  // text-decoration: none;
+  color: black;
+}
+
+.install-cmd {
+  &__wrapper {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  background-color: $lightShadeTwo;
+  // color: $primary;
+  padding: 0.5rem;
 }
 </style>

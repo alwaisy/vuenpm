@@ -9,7 +9,9 @@ const routes: RouteRecordRaw[] = [
       {
         path: '/packages',
         component: () => import('pages/ListPage.vue'),
-        props: true,
+        props: (route) => ({
+          query: decodeURIComponent(route.params.query as string),
+        }),
       },
       {
         path: '/search/:query',
@@ -19,7 +21,9 @@ const routes: RouteRecordRaw[] = [
       {
         path: '/package/:name',
         component: () => import('pages/PackageInfo.vue'),
-        props: true,
+        props: (route) => ({
+          name: decodeURIComponent(route.params.name as string),
+        }),
       },
     ],
   },

@@ -16,6 +16,7 @@ interface ImportMetaEnv {
   readonly VN_APPWRITE_DB_ID: string;
   readonly VN_APPWRITE_PKG_COLL: string;
   readonly VN_NPM_API_URL: string;
+  readonly VN_NPM_DOWNLOADS_COUNT_API: string;
 }
 
 interface ImportMeta {

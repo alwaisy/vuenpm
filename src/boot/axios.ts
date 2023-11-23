@@ -19,6 +19,10 @@ const npmApi = axios.create({
   baseURL: import.meta.env.VN_NPM_API_URL,
 });
 
+const npmDownloadsCountApi = axios.create({
+  baseURL: import.meta.env.VN_NPM_DOWNLOADS_COUNT_API,
+});
+
 export default boot(({ app }) => {
   // for use inside Vue files (Options API) through this.$axios and this.$api
 
@@ -33,4 +37,4 @@ export default boot(({ app }) => {
   app.config.globalProperties.$npmApi = npmApi;
 });
 
-export { api, npmApi };
+export { api, npmApi, npmDownloadsCountApi };

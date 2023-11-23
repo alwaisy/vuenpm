@@ -1,7 +1,15 @@
 <script setup lang="ts">
-const preferredPm = ref('npm');
+import { PmList } from 'src/@types/application';
 
-const pmList = ['npm', 'pnpm', 'yarn'];
+const preferredPm = ref<PmList>('npm');
+const pmList: PmList[] = ['npm', 'pnpm', 'yarn'];
+
+// emits
+const emit = defineEmits<{ (e: 'pm-change', pm: PmList): void }>();
+
+function onPmChange() {
+  emit('pm-change', preferredPm.value);
+}
 </script>
 
 <template>
@@ -14,6 +22,7 @@ const pmList = ['npm', 'pnpm', 'yarn'];
       :key="pm"
       checked-icon="task_alt"
       unchecked-icon="panorama_fish_eye"
+      @update:model-value="onPmChange"
     />
   </div>
 

@@ -15,6 +15,7 @@
           </Suspense>
         </template>
       </RouterView>
+      <footer>Footer goes here</footer>
     </q-page-container>
   </q-layout>
 </template>

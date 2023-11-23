@@ -10,7 +10,7 @@ defineProps<Props>();
 
 <template>
   <q-card flat bordered>
-    <RouterLink :to="`/package/${pkg.name}`">
+    <RouterLink :to="`/package/${encodeURIComponent(pkg.name)}`">
       <q-card-section>
         <div class="row items-center no-wrap">
           <div class="col">

@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { PkgDetails } from 'src/@types/application';
-import { npmApi } from 'src/boot/axios';
+import { npmApi, npmDownloadsCountApi } from 'src/boot/axios';
 import { timeAgo } from 'src/utils/date-time';
 
 // props
@@ -9,6 +9,9 @@ interface Props {
 }
 const props = defineProps<Props>();
 const { data } = await npmApi.get(`/${props.name}`);
+const downloadsPerWeek = await npmDownloadsCountApi.get(
+  `/last-week/${props.name}`
+);
 
 const pkg = ref<PkgDetails>();
 const tempRes: PkgDetails = {
@@ -32,6 +35,8 @@ const tempRes: PkgDetails = {
     modified: timeAgo(data.time[data['dist-tags'].latest]),
   },
   version: data['dist-tags'].latest,
+  weeklyDownloads: downloadsPerWeek.data.downloads,
+  license: data.license,
 };
 
 pkg.value = tempRes;
