@@ -8,10 +8,19 @@ const packages = ref<PackageList>([]);
 const router = useRouter();
 
 // props
+interface Props {
+  page: number;
+  pageSize: number;
+}
+const props = defineProps<Props>();
 
 // methods
 async function onSearch() {
-  const { data } = await npmApi.get(`/-/v1/search?text=vue ${query.value}`);
+  const { data } = await npmApi.get(
+    `/-/v1/search?text=vue ${query.value}&size=${props.pageSize}&from=${
+      (props.page - 1) * props.pageSize
+    }`
+  );
   const result = data.objects;
   const tempRes: PackageList = [];
 
@@ -26,11 +35,15 @@ async function onSearch() {
   packages.value = tempRes;
 }
 
-const onSearchEnter = async () => {
+async function onSearchEnter() {
   // console.log(query.value, 'onSearch');
   if (!query.value) return;
-  router.push(`/search/${encodeURIComponent(query.value)}`);
-};
+  router.push(
+    `/search/${encodeURIComponent(query.value)}&size=${props.pageSize}&from=${
+      (props.page - 1) * props.pageSize
+    }`
+  );
+}
 
 // computed
 </script>
