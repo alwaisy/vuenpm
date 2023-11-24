@@ -122,7 +122,7 @@ module.exports = configure(function (/* ctx */) {
       // directives: [],
 
       // Quasar plugins
-      plugins: ['LoadingBar', 'Notify'],
+      plugins: ['LoadingBar', 'Notify', 'Meta'],
       config: {
         loadingBar: {
           color: 'primary',

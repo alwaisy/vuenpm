@@ -1,5 +1,3 @@
-<script setup lang="ts"></script>
-
 <template>
   <q-page class="column items-center justify-center">
     <div>

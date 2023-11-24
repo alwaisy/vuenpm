@@ -23,6 +23,19 @@
 <script setup lang="ts">
 import { useQuasar } from 'quasar';
 
+import { useMeta } from 'quasar';
+
+useMeta({
+  title: 'VueNpm - Only VueJs. All the VueJs packages at one place',
+  meta: {
+    description: {
+      name: 'description',
+      content:
+        'Optimize your Vue.js development workflow with VueNpm, your comprehensive resource for finding and utilizing Vue.js packages.',
+    },
+  },
+});
+
 const error = ref<boolean>(false);
 const $q = useQuasar();
 

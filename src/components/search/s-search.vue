@@ -1,48 +1,16 @@
 <script setup lang="ts">
-import { PackageList, Package } from 'src/@types/application';
-import { npmApi } from 'src/boot/axios';
-
 // vars & refs
 const query = ref('');
-const packages = ref<PackageList>([]);
 const router = useRouter();
 
 // props
-interface Props {
-  page: number;
-  pageSize: number;
-}
-const props = defineProps<Props>();
 
 // methods
-async function onSearch() {
-  const { data } = await npmApi.get(
-    `/-/v1/search?text=vue ${query.value}&size=${props.pageSize}&from=${
-      (props.page - 1) * props.pageSize
-    }`
-  );
-  const result = data.objects;
-  const tempRes: PackageList = [];
-
-  result.forEach((item: { package: Package }) => {
-    tempRes.push({
-      name: item.package.name,
-      description: item.package.description,
-      keywords: item.package.keywords,
-    });
-  });
-
-  packages.value = tempRes;
-}
 
 async function onSearchEnter() {
   // console.log(query.value, 'onSearch');
   if (!query.value) return;
-  router.push(
-    `/search/${encodeURIComponent(query.value)}&size=${props.pageSize}&from=${
-      (props.page - 1) * props.pageSize
-    }`
-  );
+  router.push(`/search/${encodeURIComponent(query.value)}`);
 }
 
 // computed
@@ -59,7 +27,6 @@ async function onSearchEnter() {
         class="search-input"
         placeholder="Search vue packages"
         input-class="text-secondary"
-        @update:model-value="onSearch"
         @keydown.enter="onSearchEnter"
       />
       <q-btn
@@ -69,6 +36,7 @@ async function onSearchEnter() {
         no-caps
         class="search-btn"
         @click="onSearchEnter"
+        :disable="!query"
       />
     </div>
   </div>

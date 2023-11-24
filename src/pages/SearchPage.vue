@@ -1,6 +1,8 @@
 <script setup lang="ts">
+import { useMeta } from 'quasar';
 import { PackageList, Package } from 'src/@types/application';
 import { npmApi } from 'src/boot/axios';
+import { getDom, scrollToElement } from 'src/utils';
 
 // props
 interface Props {
@@ -25,7 +27,8 @@ async function getPackages() {
 const data = await getPackages();
 
 // methods
-function setPackageList(data: any) {
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+function setPackageList(data: { objects: any }) {
   const result = data.objects;
   const tempRes: PackageList = [];
 
@@ -46,14 +49,28 @@ async function onPageChange(value: number) {
   const data = await getPackages();
 
   setPackageList(data);
+
+  const searchResults = getDom('#searchResults');
+  scrollToElement(searchResults, 300);
 }
+
+// meta data
+useMeta({
+  title: `Search results: ${props.query}`,
+  meta: {
+    description: {
+      name: 'description',
+      content: `Search results for ${props.query}`,
+    },
+  },
+});
 </script>
 
 <template>
   <div class="search-page">
-    <SSearch :page="page" :page-size="pageSize" />
+    <SSearch />
     <!-- Searching for {{ query }}. found {{ packages.length }} packages -->
-    <h4 class="q-mb-lg">Search results: {{ query }}</h4>
+    <h4 class="q-mb-lg" id="searchResults">Search results: {{ query }}</h4>
 
     <div class="package-list">
       <SCard v-for="pkg in packages" :key="pkg.name" :pkg="pkg" />

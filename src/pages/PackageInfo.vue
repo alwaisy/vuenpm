@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { useMeta } from 'quasar';
 import { PkgDetails } from 'src/@types/application';
 import { npmApi, npmDownloadsCountApi } from 'src/boot/axios';
 import { timeAgo } from 'src/utils/date-time';
@@ -26,8 +27,8 @@ const tempRes: PkgDetails = {
   },
   maintainers: data.maintainers,
   author: {
-    name: data.author.name,
-    url: data.author.url,
+    name: data.author?.name,
+    url: data.author?.url,
   },
   scope: data.scope,
   time: {
@@ -41,9 +42,16 @@ const tempRes: PkgDetails = {
 
 pkg.value = tempRes;
 
-console.log(pkg.value);
-
-console.log(data);
+// meta data
+useMeta({
+  title: pkg.value.name + ' - VueNpm',
+  meta: {
+    description: {
+      name: 'description',
+      content: pkg.value.description,
+    },
+  },
+});
 </script>
 
 <template>
