@@ -1,3 +1,9 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
+
+body {
+  font-family: "Poppins", sans-serif;
+}
+
 // app global css in SCSS form
 .text-lightShadeOne {
   color: $lightShadeOne;
@@ -11,4 +17,19 @@ h5,
 h6,
 p {
   margin: 0;
+}
+
+.q-page {
+  // min-height: unset !important;
+  min-height: calc(100vh - 200px) !important;
+}
+
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.5s ease;
+}
+
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
 }

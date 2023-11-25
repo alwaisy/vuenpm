@@ -67,7 +67,7 @@ useMeta({
 </script>
 
 <template>
-  <div class="search-page">
+  <q-page class="search-page">
     <SSearch />
     <!-- Searching for {{ query }}. found {{ packages.length }} packages -->
     <h4 class="q-mb-lg" id="searchResults">Search results: {{ query }}</h4>
@@ -84,7 +84,7 @@ useMeta({
         @update:model-value="onPageChange"
       />
     </div>
-  </div>
+  </q-page>
 </template>
 
 <style scoped>

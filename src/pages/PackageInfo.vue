@@ -55,7 +55,7 @@ useMeta({
 </script>
 
 <template>
-  <div class="pkginfo-page">
+  <q-page class="pkginfo-page">
     <SSearch />
     <!-- Searching for {{ query }}. found {{ packages.length }} packages -->
     <!-- <h4>Search results: {{ query }}</h4> -->
@@ -64,7 +64,7 @@ useMeta({
       <SCard v-for="pkg in packages" :key="pkg.name" :pkg="pkg" />
     </div> -->
     <PiInfoCard :pkg="pkg" />
-  </div>
+  </q-page>
 </template>
 
 <style scoped>

@@ -49,7 +49,9 @@ const searchBtnLabel = computed(() => {
 });
 
 const searchBtnTo = computed(() => {
-  return query.value ? `search/${encodeURIComponent(query.value)}` : 'packages';
+  return query.value
+    ? `search/${encodeURIComponent(query.value)}`
+    : 'vue3-packages';
 });
 </script>
 

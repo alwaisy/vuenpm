@@ -7,6 +7,7 @@ export {}
 
 declare module 'vue' {
   export interface GlobalComponents {
+    Footer: typeof import('./src/components/shared/Footer.vue')['default']
     HLogo: typeof import('./src/components/home/h-logo.vue')['default']
     HSearch: typeof import('./src/components/home/h-search.vue')['default']
     PicRadioGroup: typeof import('./src/components/pkg-info/pic-radio-group.vue')['default']
@@ -15,5 +16,6 @@ declare module 'vue' {
     RouterView: typeof import('vue-router')['RouterView']
     SCard: typeof import('./src/components/search/s-card.vue')['default']
     SSearch: typeof import('./src/components/search/s-search.vue')['default']
+    VnFooter: typeof import('./src/components/shared/VnFooter.vue')['default']
   }
 }

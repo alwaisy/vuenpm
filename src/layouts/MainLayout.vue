@@ -3,19 +3,21 @@
     <q-page-container>
       <RouterView v-slot="{ Component }">
         <template v-if="Component">
-          <Suspense>
-            <!-- main content -->
-            <component :is="Component" :key="$route.fullPath"></component>
+          <transition name="fade">
+            <Suspense>
+              <!-- main content -->
+              <component :is="Component" :key="$route.fullPath"></component>
 
-            <!-- loading state -->
-            <template #fallback>
-              <div v-if="error">Please keep calm, we are fixing servers</div>
-              <div v-else>Loading...</div>
-            </template>
-          </Suspense>
+              <!-- loading state -->
+              <template #fallback>
+                <div v-if="error">Please keep calm, we are fixing servers</div>
+                <div v-else>Loading...</div>
+              </template>
+            </Suspense>
+          </transition>
         </template>
       </RouterView>
-      <footer>Footer goes here</footer>
+      <VnFooter />
     </q-page-container>
   </q-layout>
 </template>
