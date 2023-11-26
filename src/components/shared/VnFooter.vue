@@ -21,8 +21,4 @@
   margin-left: 20%;
   margin-right: 20%;
 }
-
-.about {
-  /* font-family: 'Nunito', sans-serif; */
-}
 </style>

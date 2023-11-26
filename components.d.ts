@@ -7,7 +7,6 @@ export {}
 
 declare module 'vue' {
   export interface GlobalComponents {
-    Footer: typeof import('./src/components/shared/Footer.vue')['default']
     HLogo: typeof import('./src/components/home/h-logo.vue')['default']
     HSearch: typeof import('./src/components/home/h-search.vue')['default']
     PicRadioGroup: typeof import('./src/components/pkg-info/pic-radio-group.vue')['default']
