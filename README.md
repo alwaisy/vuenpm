@@ -25,13 +25,13 @@ Npmjs.com
 
 ## Features and Tasks
 
-- [x] Add Back button issue[]
-- [ ] Website lags []
-- [ ] Use official Quasar markdown extension []
+- [x] Add Back button issue
+- [x] Website lags
+- [ ] Use official Quasar markdown extension
 
 | Task| Status | Done By | Issue |
 | -- | -- | -- | -- |
-| Integrate Appwrite and add some data | To Do | github @awaisalwaisy | N/A |
+| Integrate Appwrite and add some data | Done | github @awaisalwaisy | N/A |
 | Add  back button | Done | maybe: github @awaisalwaisy | <https://github.com/awaisalwaisy/vuenpm/issues/4> |
 | Use official Quasar markdown extension | To do| github @awaisalwaisy | <https://github.com/awaisalwaisy/vuenpm/issues/2> |
 | Website lags | To do | github @awaisalwaisy | <https://github.com/awaisalwaisy/vuenpm/issues/5> |
