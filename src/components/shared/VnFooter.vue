@@ -14,8 +14,6 @@
 <script setup lang="ts"></script>
 
 <style scoped>
-@import url('https://fonts.googleapis.com/css2?family=Nunito&display=swap');
-
 .footer {
   font-family: 'Nunito', sans-serif;
   margin-left: 20%;

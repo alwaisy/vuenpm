@@ -3,6 +3,7 @@
 import { PkgDetails, PmList } from 'src/@types/application';
 import VueMarkdown from 'vue-markdown-render';
 import { copyToClipboard, useQuasar } from 'quasar';
+import { pkgManagers } from 'src/data';
 
 interface Props {
   pkg?: PkgDetails;
@@ -10,21 +11,14 @@ interface Props {
 const props = defineProps<Props>();
 const $q = useQuasar();
 
-const pkgManagers = {
-  npm: {
-    cmd: 'i',
-  },
-  yarn: {
-    cmd: 'add',
-  },
-  pnpm: {
-    cmd: 'add',
-  },
-};
-
 const preferredPm = ref<PmList>();
 function onPmChange(pkgManager: PmList) {
   preferredPm.value = pkgManager;
+  $q.notify({
+    type: 'positive',
+    message: `${preferredPm.value} set as preferred package manager`,
+    position: 'top',
+  });
 }
 
 // computed
@@ -74,7 +68,7 @@ function copyCommand(cmd: string) {
           <p class="text-subtitle2">
             You can choose your preferred package manager
           </p>
-          <pic-radio-group @pm-change="onPmChange" />
+          <pic-radio-group @pm-change="onPmChange" note />
         </div>
       </div>
     </q-card-section>
