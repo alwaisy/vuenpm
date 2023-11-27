@@ -13,6 +13,9 @@ RUN npm ci
 # Copy the rest of project files into this image
 COPY . .
 
+# Build the application
+RUN npm run build:ssr
+
 # Expose application port
 EXPOSE 3000
 
