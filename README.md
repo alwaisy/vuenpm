@@ -1,4 +1,4 @@
-To run VueNpm locally: [Install](./Docs/install)
+To run VueNpm locally: [Install](./Docs/install.md)
 
 ## VueNpm - All the VueJs packages at one place
 
