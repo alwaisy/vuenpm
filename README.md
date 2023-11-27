@@ -1,4 +1,4 @@
-To run VueNpm locally: [Install](./Docs/install.md)
+To contribute to VueNpm or run locally: [Install](./Docs/install.md)
 
 ## VueNpm - All the VueJs packages at one place
 
@@ -23,17 +23,16 @@ Npmjs.com
 - Npm registry api
 - Appwrite cloud
 
-## Features
+## Features and Tasks
 
-- [ ] Add Back button issue[https://github.com/awaisalwaisy/vuenpm/issues/4]
-- [ ] Website lags [https://github.com/awaisalwaisy/vuenpm/issues/5]
-- [ ] Use official Quasar markdown extension [https://github.com/awaisalwaisy/vuenpm/issues/2]
+- [x] Add Back button issue[]
+- [ ] Website lags []
+- [ ] Use official Quasar markdown extension []
 
-## Tasks
-
-| Task| Status | By |
-| -- | -- | -- |
-| Integrate Appwrite and add some data | Doing | github @awaisalwaisy |
-| Add  back button | To do| maybe: github @awaisalwaisy |
-| Use official Quasar markdown extension | To do| github @awaisalwaisy |
-| Website lags | To do | github @awaisalwaisy
+| Task| Status | Done By | Issue |
+| -- | -- | -- | -- |
+| Integrate Appwrite and add some data | To Do | github @awaisalwaisy | N/A |
+| Add  back button | Done | maybe: github @awaisalwaisy | <https://github.com/awaisalwaisy/vuenpm/issues/4> |
+| Use official Quasar markdown extension | To do| github @awaisalwaisy | <https://github.com/awaisalwaisy/vuenpm/issues/2> |
+| Website lags | To do | github @awaisalwaisy | <https://github.com/awaisalwaisy/vuenpm/issues/5> |
+| Update the package Info page | To do | github @awaisalwaisy |  |

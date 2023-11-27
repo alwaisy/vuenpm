@@ -14,6 +14,7 @@ const downloadsPerWeek = await npmDownloadsCountApi.get(
   `/last-week/${props.name}`
 );
 
+const route = useRoute();
 const pkg = ref<PkgDetails>();
 const tempRes: PkgDetails = {
   name: data.name,
@@ -52,17 +53,30 @@ useMeta({
     },
   },
 });
+
+const backToLabel = computed(() => {
+  return `Back to ${route.query.from}`;
+});
+const backToLink = computed(() => {
+  return route.query.from === 'home'
+    ? '/'
+    : `/${route.query.from}/${route.query.was}?q=${route.query.was}`;
+});
 </script>
 
 <template>
   <q-page class="pkginfo-page">
     <SSearch />
-    <!-- Searching for {{ query }}. found {{ packages.length }} packages -->
-    <!-- <h4>Search results: {{ query }}</h4> -->
-
-    <!--  <div class="package-list">
-      <SCard v-for="pkg in packages" :key="pkg.name" :pkg="pkg" />
-    </div> -->
+    <q-btn
+      flat
+      color="secondary"
+      :label="backToLabel"
+      :to="backToLink"
+      no-caps
+      size="sm"
+      class="q-mb-md"
+      icon="arrow_back"
+    />
     <PiInfoCard :pkg="pkg" />
   </q-page>
 </template>
@@ -73,10 +87,4 @@ useMeta({
   margin-left: 20%;
   margin-right: 20%;
 }
-
-/* .package-list {
-  & > * + * {
-    margin-top: 1rem;
-  }
-} */
 </style>

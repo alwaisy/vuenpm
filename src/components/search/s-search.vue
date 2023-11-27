@@ -1,6 +1,7 @@
 <script setup lang="ts">
 // vars & refs
-const query = ref('');
+const route = useRoute();
+const query = ref(route.query.q as string);
 const router = useRouter();
 
 // props
@@ -10,7 +11,7 @@ const router = useRouter();
 async function onSearchEnter() {
   // console.log(query.value, 'onSearch');
   if (!query.value) return;
-  router.push(`/search/${encodeURIComponent(query.value)}`);
+  router.push(`/search/${encodeURIComponent(query.value)}?q=${query.value}`);
 }
 
 // computed
