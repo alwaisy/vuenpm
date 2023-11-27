@@ -43,15 +43,13 @@ const isQueryExist = computed(() => {
 });
 
 const searchBtnLabel = computed(() => {
-  return query.value
-    ? `View all results for ${query.value}`
-    : 'Curated Vue3 packages';
+  return query.value ? `View all results for ${query.value}` : 'Feeling lucky';
 });
 
 const searchBtnTo = computed(() => {
   return query.value
     ? `search/${encodeURIComponent(query.value)}?q=${query.value}`
-    : 'vue3-packages';
+    : 'feeling-lucky';
 });
 </script>
 

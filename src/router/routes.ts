@@ -7,8 +7,9 @@ const routes: RouteRecordRaw[] = [
     children: [
       { path: '', component: () => import('pages/HomePage.vue') },
       {
-        path: '/vue3-packages',
-        component: () => import('pages/Vue3Packages.vue'),
+        path: '/feeling-lucky',
+        component: () => import('pages/FeelingLucky.vue'),
+        // component: () => import('pages/Vue3Packages.vue'),
         props: (route) => ({
           query: decodeURIComponent(route.params.query as string),
         }),
