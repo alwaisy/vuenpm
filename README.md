@@ -1,41 +1,39 @@
-# Vue Npm (vuenpm)
+To run VueNpm locally: [Install](./Docs/install)
 
-To list all the vuejs npm packages at one place
+## VueNpm - All the VueJs packages at one place
 
-## Install the dependencies
-```bash
-yarn
-# or
-npm install
-```
+Optimize your Vue.js development workflow with VueNpm, your comprehensive resource for finding and utilizing Vue.js packages.
 
-### Start the app in development mode (hot-code reloading, error reporting, etc.)
-```bash
-quasar dev
-```
+## Inspiration
 
+Npm.io
+Npmjs.com
 
-### Lint the files
-```bash
-yarn lint
-# or
-npm run lint
-```
+## Stack
 
+### Frontend
 
-### Format the files
-```bash
-yarn format
-# or
-npm run format
-```
+- Quasar
+- Vite
+- Typescript
+- Setup composition api
 
+### Data
 
+- Npm registry api
+- Appwrite cloud
 
-### Build the app for production
-```bash
-quasar build
-```
+## Features
 
-### Customize the configuration
-See [Configuring quasar.config.js](https://v2.quasar.dev/quasar-cli-vite/quasar-config-js).
+- [ ] Add Back button issue[https://github.com/awaisalwaisy/vuenpm/issues/4]
+- [ ] Website lags [https://github.com/awaisalwaisy/vuenpm/issues/5]
+- [ ] Use official Quasar markdown extension [https://github.com/awaisalwaisy/vuenpm/issues/2]
+
+## Tasks
+
+| Task| Status | By |
+| -- | -- | -- |
+| Integrate Appwrite and add some data | Doing | github @awaisalwaisy |
+| Add  back button | To do| maybe: github @awaisalwaisy |
+| Use official Quasar markdown extension | To do| github @awaisalwaisy |
+| Website lags | To do | github @awaisalwaisy
