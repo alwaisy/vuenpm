@@ -62,8 +62,9 @@ const installCmd = (pkg) => {
     bordered
     row-key="name"
     no-data-label="I didn't find anything for you"
-    class="q-mt-lg table"
+    class="q-mt-lg table q-mb-lg"
     table-header-class="table-header"
+    :rows-per-page-options="[10, 50, 100, 200]"
   >
     <template v-slot:top-right>
       <div class="q-pa-md q-gutter-sm">
