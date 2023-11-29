@@ -85,6 +85,7 @@ useMeta({
       />
     </div>
   </q-page>
+  <q-separator />
 </template>
 
 <style scoped>

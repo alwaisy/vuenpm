@@ -1,6 +1,5 @@
 <template>
   <div class="footer">
-    <q-separator />
     <div class="q-my-md">
       <RouterLink
         to="/"

@@ -14,11 +14,6 @@ const $q = useQuasar();
 const preferredPm = ref<PmList>();
 function onPmChange(pkgManager: PmList) {
   preferredPm.value = pkgManager;
-  $q.notify({
-    type: 'positive',
-    message: `${preferredPm.value} set as preferred package manager`,
-    position: 'top',
-  });
 }
 
 // computed
@@ -126,6 +121,7 @@ function copyCommand(cmd: string) {
 <style scoped lang="scss">
 .card {
   padding: 2rem;
+  margin-bottom: 6rem;
 }
 .basic-info {
   & > * + * {

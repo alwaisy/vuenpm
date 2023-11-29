@@ -5,4 +5,5 @@
       <HSearch />
     </div>
   </q-page>
+  <q-separator />
 </template>

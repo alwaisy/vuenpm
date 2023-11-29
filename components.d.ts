@@ -17,5 +17,6 @@ declare module 'vue' {
     SCard: typeof import('./src/components/search/s-card.vue')['default']
     SSearch: typeof import('./src/components/search/s-search.vue')['default']
     VnFooter: typeof import('./src/components/shared/VnFooter.vue')['default']
+    VnLoading: typeof import('./src/components/shared/VnLoading.vue')['default']
   }
 }

@@ -44,7 +44,7 @@ await getData();
 </script>
 
 <template>
-  <q-page class="vue3-packages">
+  <q-page class="feeling-lucky">
     <RouterLink to="/" class="logo">
       <h4 class="text-h4 text-weight-bold text-secondary text-center">
         VueNpm
@@ -52,14 +52,16 @@ await getData();
     </RouterLink>
     <PackagesTable :rows="rows" />
   </q-page>
+
+  <!-- don't need separator -->
+  <!-- <q-separator /> -->
 </template>
 
 <style scoped>
 .logo {
   text-decoration: none;
 }
-.vue3-packages {
-  /* min-height: 90vh !important; */
+.feeling-lucky {
   padding-top: 2%;
   margin-left: 20%;
   margin-right: 20%;

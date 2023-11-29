@@ -17,11 +17,6 @@ const preferredPm = ref();
 
 function onPmChange(pkgManager) {
   preferredPm.value = pkgManager;
-  $q.notify({
-    type: 'positive',
-    message: `${preferredPm.value} set as preferred package manager`,
-    position: 'top',
-  });
 }
 
 function copyCommand(cmd) {
@@ -62,7 +57,7 @@ const installCmd = (pkg) => {
     bordered
     row-key="name"
     no-data-label="I didn't find anything for you"
-    class="q-mt-lg table q-mb-lg"
+    class="q-mt-lg table"
     table-header-class="table-header"
     :rows-per-page-options="[10, 50, 100, 200]"
   >

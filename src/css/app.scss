@@ -19,10 +19,13 @@ h6,
 p {
   margin: 0;
 }
-
-.q-page {
+.q-layout {
+  // min-height: 100vh;
   // min-height: unset !important;
-  min-height: calc(100vh - 200px) !important;
+  min-height: calc(100vh - 140px) !important;
+}
+.q-page {
+  min-height: calc(100vh - 140px) !important;
 }
 
 .fade-enter-active,

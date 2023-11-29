@@ -11,15 +11,17 @@
               <!-- loading state -->
               <template #fallback>
                 <div v-if="error">Please keep calm, we are fixing servers</div>
-                <div v-else>Loading...</div>
+                <div v-else>
+                  <VnLoading />
+                </div>
               </template>
             </Suspense>
           </transition>
         </template>
       </RouterView>
-      <VnFooter />
     </q-page-container>
   </q-layout>
+  <VnFooter />
 </template>
 
 <script setup lang="ts">

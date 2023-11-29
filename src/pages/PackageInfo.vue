@@ -79,6 +79,7 @@ const backToLink = computed(() => {
     />
     <PiInfoCard :pkg="pkg" />
   </q-page>
+  <q-separator />
 </template>
 
 <style scoped>
