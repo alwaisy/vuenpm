@@ -11,7 +11,11 @@ const router = useRouter();
 
 // methods
 async function onSearch() {
-  const { data } = await npmApi.get(`/-/v1/search?text=vue ${query.value}`);
+  const { data } = await npmApi.get(
+    `/-/v1/search?text=${
+      query.value.startsWith('vue') ? query.value : `vue ${query.value}`
+    }`
+  );
   const result = data.objects;
   const tempRes: PackageList = [];
 
