@@ -14,7 +14,8 @@
     "doSSR": "quasar mode add ssr",
     "build:ssr": "quasar build -m ssr --debug",
     "start:dev": "quasar dev -m ssr",
-    "start:prod": "node dist/ssr"
+    "start:prod": "node dist/ssr",
+    "start:spa": "quasar serve --history"
   },
   "dependencies": {
     "@quasar/extras": "^1.16.4",
